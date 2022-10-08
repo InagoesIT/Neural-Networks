@@ -1,0 +1,4 @@
+3x+2y+z=3
+x-3y+z=4
+-6x-4y-2z=1
+solution = no solution
