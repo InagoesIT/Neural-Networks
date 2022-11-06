@@ -11,6 +11,7 @@ OUTPUT_SIZE = 10
 with gzip.open('mnist.pkl.gz', 'rb') as fd:
     training_set, validation_set, test_set = pickle.load(fd, encoding='latin')
     TRAINING_SIZE = len(training_set[1])
+    print(training_set)
 
 weights = np.array([[rand.random() for _ in range(INPUT_SIZE)] for _ in range(OUTPUT_SIZE)])
 biases = np.array([rand.random() for _ in range(OUTPUT_SIZE)])
