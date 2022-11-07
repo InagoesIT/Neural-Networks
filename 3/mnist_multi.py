@@ -21,7 +21,6 @@ def get_params(hidden_size):
 
 
 def sigmoid(values):
-    print(values)
     return np.array([1 / (1 + pow(math.e, -_)) for _ in values])
 
 
@@ -36,7 +35,6 @@ def softmax(values):
 
 def forward_prop(weights, biases, instances):
     z0 = np.add(weights[0].dot(instances.transpose()), biases[0].reshape(100, 1))
-    print("jjjjjjjjjjjjjjjjjjjjjj", z0.shape)
     y0 = sigmoid(z0)
     z1 = np.add(np.dot(weights[1], y0), biases[1].reshape(10, 1))
     y1 = softmax(z1)
@@ -66,7 +64,6 @@ def get_one_hot(labels):
 
 
 def get_tuned_outputs(outputs):
-    print("aaaa",outputs)
     if np.count_nonzero(outputs == 1) == 1:
         return outputs.transpose()
 
@@ -117,7 +114,6 @@ def get_loss_for_instance(target, output):
 def train(weights, biases, nr_epochs=5, learning_rate=0.3, batch_size=5000):
     for i in range(nr_epochs):
         for batch_start, batch_end in zip(range(0, TRAINING_SIZE, batch_size), range(batch_size, TRAINING_SIZE, batch_size)):
-            print(f"batch st :{batch_start}, {batch_end}")
             batch = [np.array(training_set[0][batch_start:batch_end]), get_one_hot(training_set[1][batch_start:batch_end])]
             z0, y0, z1, y1 = forward_prop(weights, biases, batch[0])
             dw1, dw2, db1, db2 = backward_prop(z0, batch[0], y0, y1, weights_level_2=weights[1], targets=batch[1])
@@ -132,8 +128,6 @@ def get_accuracy(weights, biases, dataset):
 
     for i in range(dataset_size):
         label = dataset[1][i]
-        print("WTFFFF")
-        print("WTFFFF")
         z0, y0, z1, y1 = forward_prop_instance(weights, biases, dataset[0][i])
         y1 = get_tuned_outputs(y1)
         label_arr = get_one_hot_for_label(label)
