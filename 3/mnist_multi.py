@@ -25,7 +25,7 @@ def sigmoid(values):
 
 
 def sigmoid_derivative(outputs):
-    return np.array([_ * (1 - _) for _ in outputs])
+    return np.array([sigmoid(_) * (1 - sigmoid(_)) for _ in outputs])
 
 
 def softmax(values):
@@ -65,11 +65,11 @@ def get_one_hot(labels):
 
 def get_tuned_outputs(outputs):
     if np.count_nonzero(outputs == 1) == 1:
-        return outputs.transpose()
+        return outputs
 
     result = np.array([0 for _ in range(len(outputs))])
-    result[np.argmax(outputs)] = np.max(outputs)
-    return result.transpose()
+    result[np.argmax(outputs)] = 1
+    return result
 
 
 def backward_prop(z0, inputs, y1, y2, weights_level_2, targets):
@@ -111,14 +111,17 @@ def get_loss_for_instance(target, output):
     return sum([target[i] * math.log(output[i]) for i in range(len(target))])
 
 
-def train(weights, biases, nr_epochs=5, learning_rate=0.3, batch_size=5000):
+def train(weights, biases, nr_epochs=60, learning_rate=0.45, batch_size=1000):
     for i in range(nr_epochs):
         for batch_start, batch_end in zip(range(0, TRAINING_SIZE, batch_size), range(batch_size, TRAINING_SIZE, batch_size)):
             batch = [np.array(training_set[0][batch_start:batch_end]), get_one_hot(training_set[1][batch_start:batch_end])]
             z0, y0, z1, y1 = forward_prop(weights, biases, batch[0])
             dw1, dw2, db1, db2 = backward_prop(z0, batch[0], y0, y1, weights_level_2=weights[1], targets=batch[1])
             weights, biases = update_params(weights, biases, dw1, dw2, db1, db2, learning_rate)
-
+        print(f"epoch = {i}")
+        if i % 5 == 0:
+            print(f"the accuracy for the training set is: {get_accuracy(weights, biases, training_set)}")
+            print(f"the accuracy for the validation set is: {get_accuracy(weights, biases, validation_set)}")
     return weights, biases
 
 
@@ -147,5 +150,5 @@ if __name__ == '__main__':
 
     weights_main, biases_main = get_params(hidden_size=HIDDEN_SIZE)
     weights_main, biases_main = train(weights_main, biases_main)
-    # print(f"the accuracy for the training set is: {get_accuracy(weights_main, biases_main, training_set)}")
-    # print(f"the accuracy for the test set is: {get_accuracy(weights_main, biases_main, test_set)}")
+    print(f"the accuracy for the training set is: {get_accuracy(weights_main, biases_main, training_set)}")
+    print(f"the accuracy for the test set is: {get_accuracy(weights_main, biases_main, test_set)}")
