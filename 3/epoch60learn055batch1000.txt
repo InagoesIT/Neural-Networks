@@ -1,0 +1,88 @@
+epoch = 0
+the accuracy for the training set is: 80.66600000000001
+the accuracy for the validation set is: 83.16
+epoch = 1
+epoch = 2
+epoch = 3
+epoch = 4
+epoch = 5
+the accuracy for the training set is: 90.412
+the accuracy for the validation set is: 91.07
+epoch = 6
+epoch = 7
+epoch = 8
+epoch = 9
+epoch = 10
+the accuracy for the training set is: 91.796
+the accuracy for the validation set is: 92.31
+epoch = 11
+epoch = 12
+epoch = 13
+epoch = 14
+epoch = 15
+the accuracy for the training set is: 92.764
+the accuracy for the validation set is: 93.12
+epoch = 16
+epoch = 17
+epoch = 18
+epoch = 19
+epoch = 20
+the accuracy for the training set is: 93.402
+the accuracy for the validation set is: 93.7
+epoch = 21
+epoch = 22
+epoch = 23
+epoch = 24
+epoch = 25
+the accuracy for the training set is: 94.03
+the accuracy for the validation set is: 94.36
+epoch = 26
+epoch = 27
+epoch = 28
+epoch = 29
+epoch = 30
+the accuracy for the training set is: 94.48
+the accuracy for the validation set is: 94.89
+epoch = 31
+epoch = 32
+epoch = 33
+epoch = 34
+epoch = 35
+the accuracy for the training set is: 94.894
+the accuracy for the validation set is: 95.33
+epoch = 36
+epoch = 37
+epoch = 38
+epoch = 39
+epoch = 40
+the accuracy for the training set is: 95.242
+the accuracy for the validation set is: 95.57
+epoch = 41
+epoch = 42
+epoch = 43
+epoch = 44
+epoch = 45
+the accuracy for the training set is: 95.62
+the accuracy for the validation set is: 95.77
+epoch = 46
+epoch = 47
+epoch = 48
+epoch = 49
+epoch = 50
+the accuracy for the training set is: 95.914
+the accuracy for the validation set is: 95.95
+epoch = 51
+epoch = 52
+epoch = 53
+epoch = 54
+epoch = 55
+the accuracy for the training set is: 96.128
+the accuracy for the validation set is: 96.13000000000001
+epoch = 56
+epoch = 57
+epoch = 58
+epoch = 59
+the accuracy for the training set is: 96.334
+the accuracy for the test set is: 95.75
+
+Process finished with exit code 0

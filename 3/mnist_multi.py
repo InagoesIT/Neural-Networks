@@ -111,7 +111,7 @@ def get_loss_for_instance(target, output):
     return sum([target[i] * math.log(output[i]) for i in range(len(target))])
 
 
-def train(weights, biases, nr_epochs=60, learning_rate=0.45, batch_size=1000):
+def train(weights, biases, nr_epochs=60, learning_rate=0.65, batch_size=1000):
     for i in range(nr_epochs):
         for batch_start, batch_end in zip(range(0, TRAINING_SIZE, batch_size), range(batch_size, TRAINING_SIZE, batch_size)):
             batch = [np.array(training_set[0][batch_start:batch_end]), get_one_hot(training_set[1][batch_start:batch_end])]
