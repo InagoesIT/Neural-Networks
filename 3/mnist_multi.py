@@ -64,9 +64,6 @@ def get_one_hot(labels):
 
 
 def get_tuned_outputs(outputs):
-    if np.count_nonzero(outputs == 1) == 1:
-        return outputs
-
     result = np.array([0 for _ in range(len(outputs))])
     result[np.argmax(outputs)] = 1
     return result
